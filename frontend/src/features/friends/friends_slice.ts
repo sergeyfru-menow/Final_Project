@@ -126,7 +126,6 @@ export const allMyFrinds = createAsyncThunk('friends/allmyfriends',
     async ({ u_id }: User) => {
 
         try {
-            console.log(u_id);
 
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/friends/allmyfriends`,
                 { u_id },

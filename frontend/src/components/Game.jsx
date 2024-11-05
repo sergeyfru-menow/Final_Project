@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { MYURL } from '../../../../settings/settings.ts'
+import { MY_URL } from '../../../../settings/settings.ts'
 import { XMLParser } from "fast-xml-parser";
 const options = {
     ignoreAttributes: false
@@ -19,7 +19,7 @@ const Game = () => {
 
     const getGame = async () => {
         try {
-            // const response = await axios.get(`${MYURL}/games/all`,)
+            // const response = await axios.get(`${MY_URL}/games/all`,)
             // const response = await axios.get(`https://bgg-json.azurewebsites.net/collection/edwalter`,)
             const response = await axios.get(`https://bgg-json.azurewebsites.net/collection/sergeyfru`,)
             console.log(response.data);
@@ -42,7 +42,7 @@ const Game = () => {
 
 
             // If you want to perform the axios request:
-            const plusGame = await axios.post(`${MYURL}/games/savinggames`,
+            const plusGame = await axios.post(`${import.meta.env.VITE_API_URL}/games/savinggames`,
                 { game },
                 { withCredentials: true }
             );
@@ -73,7 +73,7 @@ const Game = () => {
                 console.log(game);
 
 
-                const plusGame = await axios.post(`${MYURL}/games/savinggames`,
+                const plusGame = await axios.post(`${MY_URL}/games/savinggames`,
                     { game },
                     { withCredentials: true }
                 );
